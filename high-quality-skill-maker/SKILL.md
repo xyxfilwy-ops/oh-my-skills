@@ -1,11 +1,17 @@
 ---
-name: high-quality-skill-maker-v3-alpha
+name: high-quality-skill-maker
 description: Create, review, and optimize high-quality Codex/Agent skills from repeated workflows, prompts, SOPs, or failure cases. Use when the user wants to turn recurring work into a reusable Skill, audit an existing prompt/Skill/workflow for Skill quality, or improve an existing Skill using observed failures such as routing drift, output drift, brittle tools, or unclear boundaries.
 ---
 
 # 高质量 Skill 制作器 v3.0 Alpha
 
 把重复工作沉淀为可路由、可执行、可验证、可迭代的 Skill。默认先做 MVP，不先造发布级工程。
+
+```text
+version: 3.0.1-alpha
+level: pro-alpha
+release_status: not release-ready
+```
 
 ## 核心原则
 

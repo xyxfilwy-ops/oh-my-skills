@@ -1,0 +1,153 @@
+{
+  "skill_name": "high-quality-skill-maker",
+  "version": "3.0.1-alpha",
+  "cases": [
+    {
+      "id": "trigger-create-001",
+      "input": "我想把我每周做的行业研究流程做成一个 Skill。",
+      "expected": "trigger",
+      "mode": "create",
+      "reason": "用户明确要把重复工作沉淀为 Skill。"
+    },
+    {
+      "id": "trigger-create-vague-001",
+      "input": "我每天都要把公众号文章拆成选题库，想让 AI 稳定帮我做。",
+      "expected": "trigger",
+      "mode": "create",
+      "reason": "用户表达了重复工作、稳定交付和流程沉淀需求，虽然没有直接说 Skill。"
+    },
+    {
+      "id": "trigger-create-workflow-001",
+      "input": "我们客服每周都要把投诉记录归类、提炼原因、写复盘，我想沉淀一个固定流程。",
+      "expected": "trigger",
+      "mode": "create",
+      "reason": "用户描述重复发生的团队工作和固定流程需求，应进入 create。"
+    },
+    {
+      "id": "trigger-create-agent-001",
+      "input": "帮我把新人周报检查这件事做成一个可复用的 Agent 技能。",
+      "expected": "trigger",
+      "mode": "create",
+      "reason": "用户明确要求制作可复用 Agent 技能。"
+    },
+    {
+      "id": "trigger-review-001",
+      "input": "这是我写的 Agent 指令，你帮我看看它算不算一个高质量 Skill。",
+      "expected": "trigger",
+      "mode": "review",
+      "reason": "用户提供已有指令并要求质量审查。"
+    },
+    {
+      "id": "trigger-review-workflow-001",
+      "input": "这是我给团队用的内容生产 SOP，你帮我看看能不能改成 Skill。",
+      "expected": "trigger",
+      "mode": "review",
+      "reason": "用户提供已有 SOP，并要求判断是否可改造成 Skill。"
+    },
+    {
+      "id": "trigger-review-prompt-001",
+      "input": "我有一段复盘提示词，帮我审一下边界和输出格式是不是够稳定。",
+      "expected": "trigger",
+      "mode": "review",
+      "reason": "用户提供已有 prompt 并要求审查边界和输出稳定性。"
+    },
+    {
+      "id": "trigger-review-skill-001",
+      "input": "下面这个 SKILL.md 你帮我做一次质量评估，不要直接重写。",
+      "expected": "trigger",
+      "mode": "review",
+      "reason": "用户提供已有 Skill 并要求质量评估，应进入 review。"
+    },
+    {
+      "id": "trigger-optimize-001",
+      "input": "这个 Skill 经常把普通总结请求也接走，输出结构还不稳定，你帮我优化。",
+      "expected": "trigger",
+      "mode": "optimize",
+      "reason": "用户描述已有 Skill 的误触发和输出漂移失败。"
+    },
+    {
+      "id": "trigger-optimize-tool-001",
+      "input": "这个 Skill 抓网页失败后会假装读到了内容，你帮我修一下。",
+      "expected": "trigger",
+      "mode": "optimize",
+      "reason": "用户提供了已有 Skill 的工具失败案例，需要按失败机制优化。"
+    },
+    {
+      "id": "trigger-optimize-output-001",
+      "input": "我这个 Skill 每次交付的表格字段都不一样，能不能按失败案例改一版？",
+      "expected": "trigger",
+      "mode": "optimize",
+      "reason": "用户描述输出漂移并要求基于失败案例优化已有 Skill。"
+    },
+    {
+      "id": "trigger-optimize-boundary-001",
+      "input": "这个技能总是问太多问题，真正信息够的时候也不往下做，帮我针对这个问题修。",
+      "expected": "trigger",
+      "mode": "optimize",
+      "reason": "用户描述已有技能执行断点和澄清过度问题，应进入 optimize。"
+    },
+    {
+      "id": "no-trigger-once-001",
+      "input": "帮我把这段中文翻译成英文。",
+      "expected": "no_trigger",
+      "mode": null,
+      "reason": "这是一次性翻译任务，没有复用 Skill 需求。"
+    },
+    {
+      "id": "no-trigger-brainstorm-001",
+      "input": "帮我头脑风暴 10 个播客选题。",
+      "expected": "no_trigger",
+      "mode": null,
+      "reason": "这是单次创意生成，未表达沉淀为 Skill 的意图。"
+    },
+    {
+      "id": "no-trigger-analysis-001",
+      "input": "请用费曼学习法和奥卡姆剃刀法帮我分析这篇文章。",
+      "expected": "no_trigger",
+      "mode": null,
+      "reason": "这是单次分析请求，除非用户明确表示要把该分析流程沉淀为 Skill。"
+    },
+    {
+      "id": "no-trigger-writing-001",
+      "input": "帮我写一封给客户的邮件。",
+      "expected": "no_trigger",
+      "mode": null,
+      "reason": "这是一次性写作任务，除非用户想沉淀邮件写作流程。"
+    },
+    {
+      "id": "no-trigger-summary-001",
+      "input": "把下面这段会议纪要总结成三条要点。",
+      "expected": "no_trigger",
+      "mode": null,
+      "reason": "这是单次总结任务，未体现复用、审查或优化 Skill 的意图。"
+    },
+    {
+      "id": "clarify-ambiguous-001",
+      "input": "我有一个流程想自动化。",
+      "expected": "clarify",
+      "mode": null,
+      "reason": "可能是 create，但缺少重复工作、输入和交付物边界。"
+    },
+    {
+      "id": "clarify-prompt-001",
+      "input": "帮我写一个提示词，让 AI 帮我做行业研究。",
+      "expected": "clarify",
+      "mode": null,
+      "reason": "可能只是一次性 prompt，也可能想沉淀为 Skill，需要确认是否反复使用。"
+    },
+    {
+      "id": "clarify-template-001",
+      "input": "我想要一个固定模板，帮我以后处理类似材料。",
+      "expected": "clarify",
+      "mode": null,
+      "reason": "有复用信号但缺少任务类型、输入和输出边界，需要先澄清。"
+    },
+    {
+      "id": "clarify-review-or-optimize-001",
+      "input": "这个 Agent 指令不太好用，你帮我看看。",
+      "expected": "clarify",
+      "mode": null,
+      "reason": "可能是 review，也可能需要失败案例驱动 optimize，需要确认用户目标。"
+    }
+  ]
+}
