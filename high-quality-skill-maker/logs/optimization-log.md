@@ -4,7 +4,8 @@
 
 | 版本 | 日期 | failure_mode | edit_type | 修改内容 | 验证结果 | 是否进入 best_skill |
 |---|---|---|---|---|---|---|
-| 3.0.0-alpha | 2026-05-31 | initial_mvp | add | 创建 MVP Skill Maker 工程包 | 结构校验通过后接受 | yes |
+| 3.0.1-alpha | 2026-05-31 | initial_mvp | add | 创建 MVP Skill Maker 工程包 | 结构校验通过后接受 | yes |
+| 3.0.1-alpha | 2026-05-31 | routing_drift / trigger_gap / delivery_gap | replace/add | 稳定 Skill 命名、补充 README、扩充 eval cases、增强 validator、增加 CI | 结构校验与 JSON 校验通过后接受 | yes |
 
 ## 条目模板
 
