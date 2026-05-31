@@ -1,0 +1,24 @@
+name: Validate Skills
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate structure
+        run: python3 high-quality-skill-maker/scripts/validate_structure.py high-quality-skill-maker
+
+      - name: Validate trigger cases JSON
+        run: python3 -m json.tool high-quality-skill-maker/evals/trigger-cases.json >/tmp/trigger-cases.formatted.json
+
+      - name: Validate selection cases JSON
+        run: python3 -m json.tool high-quality-skill-maker/evals/selection-cases.json >/tmp/selection-cases.formatted.json
+
+      - name: Compile scripts
+        run: python3 -m py_compile high-quality-skill-maker/scripts/*.py

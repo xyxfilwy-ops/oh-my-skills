@@ -1,0 +1,71 @@
+{
+  "skill_name": "high-quality-skill-maker",
+  "version": "3.0.1-alpha",
+  "purpose": "Validate bounded optimize edits against independent cases instead of the same failure case used for diagnosis.",
+  "cases": [
+    {
+      "id": "selection-routing-drift-001",
+      "input": "用户说：帮我写一封邮件。当前 Skill 把它当成 Skill 制作请求。",
+      "current_problem": "routing_drift",
+      "expected_behavior": "no_trigger，并说明这是一次性写作任务，除非用户想沉淀邮件写作流程。",
+      "scoring_dimensions": ["routing_decision", "boundary_reason"],
+      "pass_condition": "必须输出 no_trigger 或明确不进入 create/review/optimize。"
+    },
+    {
+      "id": "selection-trigger-gap-001",
+      "input": "用户说：我经常把客户访谈录音整理成洞察报告，想做成 Skill。",
+      "current_problem": "trigger_gap",
+      "expected_behavior": "trigger create，先判断是否值得做 Skill，再询问真实输入和目标输出。",
+      "scoring_dimensions": ["mode_selection", "first_questions"],
+      "pass_condition": "必须选择 create，且最多问 1-2 个关键问题。"
+    },
+    {
+      "id": "selection-boundary-blur-001",
+      "input": "用户说：帮我写个行业研究 prompt。当前 Skill 不确定这是一次性 prompt 还是 Skill 制作。",
+      "current_problem": "boundary_blur",
+      "expected_behavior": "输出 clarify，只问是否要反复使用并沉淀为 Skill，不能直接进入完整制作流程。",
+      "scoring_dimensions": ["clarify_decision", "question_count", "boundary_control"],
+      "pass_condition": "必须澄清复用意图，且问题不超过 2 个。"
+    },
+    {
+      "id": "selection-input-mismatch-001",
+      "input": "用户贴来一段团队 SOP、两条失败反馈和一个目标输出样例，要求审查是否能做成 Skill。",
+      "current_problem": "input_mismatch",
+      "expected_behavior": "先把 SOP、失败反馈、目标输出分别标准化，再进入 review，而不是要求用户重填格式。",
+      "scoring_dimensions": ["input_routing", "standardization", "review_entry"],
+      "pass_condition": "必须生成输入摘要，并正确识别已有工作流与失败材料。"
+    },
+    {
+      "id": "selection-execution-break-001",
+      "input": "用户只缺少目标环境，但已经给出核心任务、真实输入、目标输出和成功标准。当前 Skill 停在追问阶段。",
+      "current_problem": "execution_break",
+      "expected_behavior": "标记目标环境为待确认，继续给出可修订的执行蓝图摘要和下一步最小确认问题。",
+      "scoring_dimensions": ["progression", "missing_info_handling", "minimum_viable_delivery"],
+      "pass_condition": "不得中断；必须提供下一步产物，并只问会改变设计的 1 个问题。"
+    },
+    {
+      "id": "selection-output-drift-001",
+      "input": "用户反馈审查报告每次结构不同，有时没有风险、有时没有修复建议。",
+      "current_problem": "output_drift",
+      "expected_behavior": "补强固定审查报告契约，至少包含质量判断、失败模式、最小修复建议、验证方法和版本等级。",
+      "scoring_dimensions": ["output_contract", "required_sections", "stability"],
+      "pass_condition": "输出结构必须稳定列出所有必备段落。"
+    },
+    {
+      "id": "selection-tool-fragility-001",
+      "input": "用户提供一个 Skill 和失败案例：网页抓取失败后模型假装读到了内容。",
+      "current_problem": "tool_fragility",
+      "expected_behavior": "diagnose tool_fragility，提出有界修改：为抓取工具增加失败回退和最低可用交付。",
+      "scoring_dimensions": ["failure_mode", "bounded_edit", "fallback"],
+      "pass_condition": "修改不超过 4 处，且不能整篇重写。"
+    },
+    {
+      "id": "selection-over-engineering-001",
+      "input": "用户只想把一个复用 prompt 做成 Skill MVP，当前方案却要求新增数据库、Web UI、复杂 CLI 和多阶段发布流程。",
+      "current_problem": "over_engineering",
+      "expected_behavior": "降级为 MVP，只保留 SKILL.md、必要 references/evals/logs 和最小验证，不新增复杂外部依赖。",
+      "scoring_dimensions": ["scope_control", "dependency_control", "mvp_fit"],
+      "pass_condition": "必须删除或拒绝复杂工程化内容，并说明当前不是 release 阶段。"
+    }
+  ]
+}
