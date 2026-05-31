@@ -1,0 +1,48 @@
+{
+  "skill_name": "high-quality-skill-maker-v3-alpha",
+  "version": "3.0.0-alpha",
+  "cases": [
+    {
+      "id": "trigger-create-001",
+      "input": "我想把我每周做的行业研究流程做成一个 Skill。",
+      "expected": "trigger",
+      "mode": "create",
+      "reason": "用户明确要把重复工作沉淀为 Skill。"
+    },
+    {
+      "id": "trigger-review-001",
+      "input": "这是我写的 Agent 指令，你帮我看看它算不算一个高质量 Skill。",
+      "expected": "trigger",
+      "mode": "review",
+      "reason": "用户提供已有指令并要求质量审查。"
+    },
+    {
+      "id": "trigger-optimize-001",
+      "input": "这个 Skill 经常把普通总结请求也接走，输出结构还不稳定，你帮我优化。",
+      "expected": "trigger",
+      "mode": "optimize",
+      "reason": "用户描述已有 Skill 的误触发和输出漂移失败。"
+    },
+    {
+      "id": "no-trigger-once-001",
+      "input": "帮我把这段中文翻译成英文。",
+      "expected": "no_trigger",
+      "mode": null,
+      "reason": "这是一次性翻译任务，没有复用 Skill 需求。"
+    },
+    {
+      "id": "no-trigger-brainstorm-001",
+      "input": "帮我头脑风暴 10 个播客选题。",
+      "expected": "no_trigger",
+      "mode": null,
+      "reason": "这是单次创意生成，未表达沉淀为 Skill 的意图。"
+    },
+    {
+      "id": "clarify-ambiguous-001",
+      "input": "我有一个流程想自动化。",
+      "expected": "clarify",
+      "mode": null,
+      "reason": "可能是 create，但缺少重复工作、输入和交付物边界。"
+    }
+  ]
+}
