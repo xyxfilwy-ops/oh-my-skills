@@ -24,7 +24,7 @@ It checks:
 - Selection eval cases contain at least 8 cases and use failure modes from `references/failure-patterns.md`.
 - Eval case ids are unique within each eval file.
 
-Note: this is a structure validator, not a behavior evaluator. It verifies that eval cases exist and are well-formed, but it does not run a model or score whether the Skill chooses the correct mode for a given input. A future `scripts/run_eval_cases.py` can add manual or model-assisted scoring when the project is ready for behavior validation.
+Note: this is a structure validator, not a behavior evaluator or model runner. It verifies that eval cases exist and are well-formed, but it does not run a model or score whether the Skill chooses the correct mode for a given input. A future `scripts/run_eval_cases.py` can add manual or model-assisted scoring when the project is ready for behavior validation.
 
 ## 2. System skill-creator quick validation
 
