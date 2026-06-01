@@ -6,7 +6,7 @@
 
 | Skill | 用途 | 状态 |
 |---|---|---|
-| high-quality-skill-maker | 把重复工作制作成可路由、可执行、可验证、可迭代的 Skill | v3.0.2-alpha / pro-alpha |
+| high-quality-skill-maker | 把重复工作制作成可路由、可执行、可验证、可迭代的 Skill | v3.0.1-alpha / pro-alpha |
 
 ## 当前重点 Skill
 
@@ -50,7 +50,7 @@ python3 -m py_compile high-quality-skill-maker/scripts/*.py
 当前目标状态：
 
 ```text
-version: 3.0.2-alpha
+version: 3.0.1-alpha
 level: pro-alpha
 release_status: not release-ready
 ```
