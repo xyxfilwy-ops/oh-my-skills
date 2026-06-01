@@ -134,3 +134,37 @@
   - no
 - 备注：
   这个案例可作为工具失败处理策略的正向样本。
+
+## 2026-06-01 - book-to-skill v2 技能冷启动
+
+- mode：create
+- 输入类型：URL
+- 用户原始需求摘要：
+  用户要求使用 high-quality-skill-maker 执行一次真实 dry-run，以 `https://github.com/virgiliojr94/book-to-skill` 为参考，制作一个更加好用、更加实用的 book to skill v2 技能；完成后额外输出 dry-run record draft；不要直接修改 Skill，只记录本次运行证据。
+- 用户提供的关键材料：
+  GitHub 仓库 URL。通过网页读取到原项目目标、生成文件结构、支持格式、提取链路、质量规则和安装方式。尝试用 shell `git clone --depth 1 https://github.com/virgiliojr94/book-to-skill` 获取仓库失败，错误为 `CONNECT tunnel failed, response 403`，后改用网页和 raw 文件读取。
+- 目标输出：
+  一份 book-to-skill v2 Skill MVP 草案，包括意图判断、输入标准化、执行蓝图、可复制 `SKILL.md`、首次使用话术、最小 references/evals/logs 建议、版本等级、风险、测试方法和下一步优化建议；同时输出严格按本文件模板填写的 dry-run record draft。
+- 不适用或边界信号：
+  不应把任务误判为直接转换某一本书；不应改动 high-quality-skill-maker 的 Skill 文件；不应实际安装或覆盖用户本地技能；不应声称生成的是 release 版；不应复制原仓库实现作为最终版本。
+- 执行结果：
+  - 是否完成意图判断：pass
+  - 是否完成输入标准化：pass
+  - 是否完成执行蓝图：pass
+  - 是否生成可直接使用的交付物：partial
+  - 是否完成效用门控：partial
+- 主要成功信号：
+  能从 URL 输入进入 create 模式；能识别参考项目的核心机制是把文档提取为按需加载的技能包，而不是一次性摘要；能把 v2 的改进方向收敛到输入路由、版权安全、成本预估、质量门控、降级链和验收测试；遵守了“不直接修改 Skill”的约束，只记录 dry-run 证据。
+- 暴露的问题：
+  shell 侧无法克隆 GitHub 仓库，依赖网页读取作为回退，证据完整性低于本地仓库审查；用户没有提供真实书籍样本、失败案例和目标运行环境，导致生成的 v2 只能是 cold-start/usable 边缘草案；为满足“先正常完成工作”和“只记录证据”的组合要求，最终交付物主要在对话中给出，没有落地为可运行 Skill 包；效用门控只能做结构性检查，不能验证真实 PDF/EPUB 转换质量；任务类型字段给出 create / review / optimize 三选项但自然语言目标偏 create，存在轻微边界歧义。
+- 对应 failure_mode：
+  - tool_fragility
+  - input_mismatch
+  - delivery_gap
+  - boundary_blur
+- 是否需要修改 Skill：
+  - investigate
+- 建议进入下一轮优化吗：
+  - yes
+- 备注：
+  该案例可用于后续检查 URL 输入回退、dry-run 记录模板遵循、以及 create 模式在缺少最小经验包时是否能稳定标记版本风险。
