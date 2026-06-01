@@ -1,6 +1,6 @@
 {
   "skill_name": "high-quality-skill-maker",
-  "version": "3.0.1-alpha",
+  "version": "3.0.2-alpha",
   "purpose": "Validate bounded optimize edits against independent cases instead of the same failure case used for diagnosis.",
   "cases": [
     {
