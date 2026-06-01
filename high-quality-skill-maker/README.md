@@ -47,7 +47,7 @@ python3 -m py_compile scripts/*.py
 
 ## 当前状态
 
-当前版本：3.0.2-alpha
+当前版本：3.0.1-alpha
 当前等级：pro-alpha
 发布状态：not release-ready
 

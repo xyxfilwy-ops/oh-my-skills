@@ -6,7 +6,6 @@
 |---|---|---|---|---|---|---|
 | 3.0.0-alpha | 2026-05-31 | initial_mvp | add | 创建 MVP Skill Maker 工程包 | 结构校验通过后接受 | yes |
 | 3.0.1-alpha | 2026-05-31 | routing_drift / trigger_gap / delivery_gap | replace/add | 稳定 Skill 命名、补充 README、扩充 eval cases、增强 validator、增加 CI | 结构校验、JSON 校验与脚本编译通过后接受 | yes |
-| 3.0.2-alpha | 2026-06-01 | none | replace | 仅推进版本状态至 3.0.2-alpha；保持 `level: pro-alpha` 与 `release_status: not release-ready` 不变，未扩大功能范围 | 绑定 `logs/dry-run-cases.md` 中 2026-06-01 至少 3 条真实 dry-run 记录（行业研究流程、内容生产 SOP 审查、网页抓取失败后的工具脆弱性优化等）；结构校验、JSON 校验与脚本编译通过后接受 | yes |
 
 ## 条目模板
 
