@@ -1,6 +1,6 @@
 {
   "skill_name": "high-quality-skill-maker",
-  "version": "3.0.1-alpha",
+  "version": "3.0.2-alpha",
   "cases": [
     {
       "id": "trigger-create-001",

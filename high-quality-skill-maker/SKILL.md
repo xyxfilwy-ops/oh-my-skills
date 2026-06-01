@@ -8,7 +8,7 @@ description: Create, review, and optimize high-quality Codex/Agent skills from r
 把重复工作沉淀为可路由、可执行、可验证、可迭代的 Skill。默认先做 MVP，不先造发布级工程。
 
 ```text
-version: 3.0.1-alpha
+version: 3.0.2-alpha
 level: pro-alpha
 release_status: not release-ready
 ```
